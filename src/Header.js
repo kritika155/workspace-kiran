@@ -7,7 +7,7 @@ export default class Header extends Component
 
     }
     render(){
-        return(
+        return(<div>
             <div className="container-fluid">
             <div className="row header">
             <div className="col-md-8">
@@ -17,6 +17,7 @@ export default class Header extends Component
                 <button >Items in cart:{this.props.count}</button>
                 </div>
                 </div>
+            </div>
             </div>
         )
     }
