@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Heading from './heading';
 import ProductList from './ProductList';
 import Search from './Search';
+import Header from './Header';
+
 export default class App extends Component {
   constructor(props){
     super(props);
@@ -47,11 +49,11 @@ this.removecart=this.removecart.bind(this);
   render() {
     return (
       <div className="container">
-      <h1>{this.state.counter}</h1>
-       <h1 style={{margin:0,padding:0,width:1400, backgroundColor: 'powderblue'}}>Welcome to Shopping Cart</h1>
+      {/* <h1>{this.state.counter}</h1> */}
+      <Header count={this.state.counter}/>
       
     <Search searchText={this.handleChange} search={this.handleSearchClick}/>
-    <label className="badge">Items in Cart:{this.state.counter}</label>
+    {/* <label className="badge">Items in Cart:{this.state.counter}</label> */}
     <ProductList search={this.state.searchQuery}
     add={this.addtocart}
     remove={this.removecart}/>
