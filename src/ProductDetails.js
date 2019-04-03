@@ -7,15 +7,17 @@ export default class ProductDetails extends Component{
     }
     render(){
         return(
-            <div className="List" style={{listStyle:'none'}}>
-           <h1 style={{textAlign:'center'}}> {this.props.details.productName}</h1><br/>
-           <ul style={{display:'inline'}}>
-            <li  style={{listStyleType: "none"}}><img src={this.props.details.image}></img></li><br/>
-<li  style={{listStyleType: "none",fontSize:15}}><span style={{color:'red',fontSize:20}}>Description:</span>{this.props.details.description}</li><br/>
-<li  style={{listStyleType: "none",fontSize:15}}><span style={{color:'red',fontSize:20}}>Quantity in Stock:</span>{this.props.details.quantity}</li><br/>
-<li  style={{listStyleType: "none",fontSize:15}}><span style={{color:'red',fontSize:20}}>Rs.</span>{this.props.details.price}</li>
+            <div className="List" >
+           <h1 > {this.props.details.productName}</h1><br/>
+           <ul >
+            <li ><img src={this.props.details.image}></img></li><br/>
+<li  ><span>Description:</span>{this.props.details.description}</li><br/>
+<li ><span >Quantity in Stock:</span>{this.props.details.quantity}</li><br/>
+<li ><span >Rs.</span>{this.props.details.price}</li>
 </ul>
-<button onClick={(e) =>this.props. addToCart(e)} style={{textAlign:'center',backgroundColor:'blue'}}>Add to Cart</button>
+<button onClick={() =>this.props.add()}>Add to Cart</button>
+<button onClick={() =>this.props.remove()}>Remove from Cart</button>
+
             </div>
         )
     }

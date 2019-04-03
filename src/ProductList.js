@@ -21,7 +21,7 @@ this.state={
             let listOfProductsDisplayed='';
             if(this.props.search==''){
                 listOfProductsDisplayed=this.state.products.map((product,index)=>{
-                    return <ProductDetails key={index} details={product}/>
+                    return <ProductDetails key={index} details={product} add={this.props.add} remove={this.props.remove}/>
                 })
             }
             else{
@@ -29,7 +29,7 @@ this.state={
                     return product.productName.includes(this.props.search)
                 });
                 listOfProductsDisplayed=filterProducts.map((product,index)=>{
-                    return <ProductDetails key={index} details={product}/>
+                    return <ProductDetails key={index} details={product} add={this.props.add} remove={this.props.remove}/>
                 })
             }
           return(

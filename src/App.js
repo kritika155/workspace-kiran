@@ -11,18 +11,26 @@ export default class App extends Component {
   };
   this.handleSearchClick=this.handleSearchClick.bind(this);
 this.handleChange=this.handleChange.bind(this);
+this.addtocart=this.addtocart.bind(this);
+this.removecart=this.removecart.bind(this);
+
   }
-  handleAddToCart(data){
+  addtocart(data){
     console.log(data);
     let currentState=this.state;
     currentState.counter++;
     this.setState(currentState);
   }
-  handleRemoveCart(data){
+  removecart(data){
     console.log(data);
     let currentState=this.state;
+    if(currentState.counter==0){
+      this.setState(currentState);
+    }
+    else{
     currentState.counter--;
     this.setState(currentState);
+  }
   }
   handleSearchClick(data){
     console.log(data);
@@ -43,10 +51,11 @@ this.handleChange=this.handleChange.bind(this);
        <h1 style={{margin:0,padding:0,width:1400, backgroundColor: 'powderblue'}}>Welcome to Shopping Cart</h1>
       
     <Search searchText={this.handleChange} search={this.handleSearchClick}/>
-    <label className="badge">{this.state.counter}</label>
-    <ProductList search={this.state.searchQuery}/>
-    addToCart={this.state.handleAddToCart}
-    removeCart={this.state.handleRemoveCart}
+    <label className="badge">Items in Cart:{this.state.counter}</label>
+    <ProductList search={this.state.searchQuery}
+    add={this.addtocart}
+    remove={this.removecart}/>
+    
      </div>
     );
   }
